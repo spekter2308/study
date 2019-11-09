@@ -12,9 +12,55 @@
 </head>
 <body>
 
+    <div id="app">
+        <h2 ref="test">{{ title }}</h2>
+        <button @click="title = 'new title'">Change title</button>
+        <button @click="doDestroy">Destroy</button>
+    </div>
 
 
-<script src="main.js"></script>
+
+<!--<script src="main.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
    <!-- <script src="/public/app.js"></script>-->
+<script>
+    let test = new Vue({
+        el: '#app',
+        data() {
+            return {
+                title: 'Some vue title'
+            }
+        },
+        methods: {
+            doDestroy() {
+                this.$destroy()
+            }
+        },
+        beforeCreate() {
+            console.log('before create')
+        },
+        created() {
+            console.log('created')
+        },
+        beforeMount() {
+            console.log('before mount')
+        },
+        mounted() {
+            console.log('mounted')
+        },
+        beforeUpdate() {
+            console.log('before update')
+        },
+        updated() {
+            console.log('updated')
+        },
+        beforeDestroy() {
+            console.log('before destroy')
+        },
+        destroyed() {
+            console.log('destroyed')
+        }
+    });
+</script>
 </body>
 </html>
