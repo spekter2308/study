@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Counter {{ counter }}</h1>
+        <h1 @click="UpdateCounter(1)">Counter {{ counter }}</h1>
         <slot></slot>
     </div>
 </template>
@@ -10,6 +10,11 @@
         computed: {
             counter() {
                 return this.$store.state.counter
+            }
+        },
+        methods: {
+            UpdateCounter(val) {
+                this.$store.state.counter += val;
             }
         }
     }
